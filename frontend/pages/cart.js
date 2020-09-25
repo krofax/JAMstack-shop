@@ -1,10 +1,13 @@
 
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import contextCart from '../components/contextCart';
 
 const Cart = () => {
   const { cart } = useContext(contextCart);
-  const Url = `${process.env.REACT_APP_URL}`;
+  const Url = "http://localhost:1337";
+  useEffect(() => {
+    console.log('URL-', Url)
+  }, [])
   return (
     <div>
       <div className="pb-5">
@@ -29,8 +32,8 @@ const Cart = () => {
                         <th scope="row" className="border-0">
                           <div className="p-2">
                             <img
-                              src={`${process.env.REACT_APP_URL}${item.image[0].url}`}
-                              alt={`${process.env.REACT_APP_URL}${item.image[0].url}`}
+                              src={`${Url}${item.image[0].url}`}
+                              alt={`${Url}${item.image[0].url}`}
                               width="70"
                               className="img-fluid rounded shadow-sm"
                             />
